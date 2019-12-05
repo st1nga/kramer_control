@@ -1,0 +1,17 @@
+# Used to start the script that controls the kramer audio switch
+
+[Unit]
+Description=Kramer Control
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+User=coastfm
+Group=coastfm
+Type=simple
+ExecStart=/home/coastfm/.pyenv/shims/python3.8 /home/coastfm/kramer_control/bin/kramer_control.py
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
